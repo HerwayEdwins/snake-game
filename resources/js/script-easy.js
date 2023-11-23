@@ -24,11 +24,26 @@ const updateFoodPosition = () => {
 }
 
 const handleGameOver = () => {
-    // Clearing the timer and reloading the page on game over
     clearInterval(setIntervalId);
-    alert("Game Over! Press OK to start again...");
+
+    // Prompt the user for their name
+    const user = prompt("Game Over! Enter your name:");
+
+    // Get existing scores from local storage
+    const scores = JSON.parse(localStorage.getItem("snakeGameScores")) || [];
+
+    // Add the current user's score to the scores array
+    scores.push({ user, score });
+
+    // Sort the scores array by score in descending order
+    scores.sort((a, b) => b.score - a.score);
+
+    // Store the updated scores array in local storage
+    localStorage.setItem("snakeGameScores", JSON.stringify(scores));
+
+    // Reload the page
     location.reload();
-}
+  };
 // Add this code to your JavaScript
 const pauseButton = document.querySelector(".pause-button");
 
