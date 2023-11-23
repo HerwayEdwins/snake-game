@@ -26,8 +26,7 @@ Route::get('/difficulty', function () {
     return view('difficulty');
 
 })
-
-->middleware(['verified']);
+->name('difficulty');
 
 Route::get('/home', function () {
     return view('difficulty');
@@ -37,10 +36,20 @@ Route::get('/home', function () {
 
 Route::get('/gameplay-easy', function () {
     return view('gameplay-easy');
-
 })
+->name('gameplay-easy');
 
-->middleware(['verified']);
+
+Route::get('/scoreboard', function () {
+    return view('scoreboard');
+})
+->name('scoreboard');
+
+Route::get('/scoreboardreport', function () {
+    return view('scoreboardreport');
+})
+->name('scoreboardreport');
+
 Route::get('/gameplay-medium', function () {
     return view('gameplay-medium');
 })
